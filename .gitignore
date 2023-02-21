@@ -1,0 +1,3 @@
+
+# Ignore .idea configuration files from WebStorm
+.idea/

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSE 134b HW3 HTML Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="author" content="Jeffrey Luu"/>
+    <link href="assets/images/favicon.ico" rel="icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--TODO Used for icons with javascript-->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" rel="stylesheet" > -->
+    <link href="styles/main.css" rel="stylesheet"/>
+
+    <!-- Home Section Style-->
+    <style>
+        #home {
+            visibility: hidden;
+        }
+        
+        #homeCols {
+            justify-content: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            #homeCols {
+                margin-left: 2rem;
+            }
+        }
+
+    
+        #homeRows {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            #homeRows {
+                margin-left: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #homeRows {
+                margin-left: 0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        #intro {
+            margin-bottom: 6rem;
+            margin-right: 2rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            #intro {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #intro {
+                margin-bottom: 1rem;
+            }
+        }
+
+        #introDesc {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: left;
+            color: var(--font-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            #introDesc {
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #introDesc {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        #introDesc2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 2rem;
+            font-size: 1.25rem;
+            font-family:'Courier New', Courier, monospace;
+            color: var(--font-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            #introDesc2 {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+        }
+
+        #resumeButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            width: -moz-fit-content;
+            width: fit-content;
+            margin: auto;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid black;
+            background-image: linear-gradient(90deg, #06B6D4 0%, #3B82F6 100%);
+            
+            
+        }
+
+        #resumeButton:hover {
+            background-image: linear-gradient(90deg, #3B82F6 0%, #06B6D4 100%);
+        }
+
+        #resumeLink {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        #me {
+            height: -moz-max-content;
+            height: max-content;
+            margin-right: 1rem;
+        }
+
+        #fractal {
+            margin: 0 auto;
+            height: -moz-max-content;
+            height: max-content;
+            width: 20rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            #fractal {
+                width: 18rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #fractal {
+                width: 15rem;
+            }
+        }
+
+        #fractalImg {
+            justify-content: center;
+            align-items: center; 
+        }
+
+        
+        @media screen and (max-width: 768px) {
+            #fractalImg img {
+                width: 90%;
+                height: 90%;
+                margin-left: 0;
+            }
+        }
+
+        .imgDesc {
+            font-size: 1.2rem;
+            text-align: center;
+            padding-left: 1rem;
+            font-family:'Courier New', Courier, monospace;
+            color: var(--font-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .imgDesc {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .imgDesc {
+                text-align: left;
+            }
+        }
+    </style>
+    
+
+    <!-- About Section Style-->
+    <style>
+        #aboutDesc {
+            text-indent: 2rem;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            text-align: left;
+            color: var(--font-color);
+        }
+
+        @media screen and (max-width: 480px) {
+            #aboutDesc {
+                font-size: 1rem;
+            }
+        }
+            
+    </style>
+
+    <!-- Work Section Style-->
+    <style>
+        #workDesc {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        #workContainer {
+            max-width: 66rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (max-width: 1024px) {
+            #workContainer {
+                max-width: 75%;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-gap: 1rem;
+                padding: 0rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        /* If the screen is 768px or less, make the grid 1 column and reduce the margin-left */
+        @media screen and (max-width: 768px) {
+            #workContainer {
+                max-width: 75%;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                grid-gap: 1rem;
+                padding: 0rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        .background {
+            background-color: var(--font-color);
+        }
+
+        
+
+        .projectContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 20rem;
+            min-height: 15rem;
+        }
+
+        /* If the screen is 768px or less, lower the min-width */
+        @media screen and (max-width: 768px) {
+            .projectContainer {
+                min-width: 15rem;
+            }
+        }
+
+        .projectTitle {
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+
+        .moreInfo {
+            text-align: center;
+            opacity: 0;
+            color: var(--inverse-font-color);
+        }
+
+        .moreInfo:hover {
+            opacity: 1;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            .moreInfo {
+                opacity: 1;
+            }
+        }
+
+        .learnMore {
+            font-size: 1rem;
+            font-family:Trebuchet MS;
+            width: 8.75rem;
+            height: 3.125rem;
+            border-width:2px;
+            cursor:pointer;
+            color:var(--font-color);
+            border-color:#333029;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            text-shadow: 0px 1px 0px #ffffff;
+            background:linear-gradient(var(--button1-color), var(--button2-color));
+        }
+
+        .learnMore:hover {
+            background:linear-gradient(var(--button2-color), var(--button1-color));
+        }
+
+    </style>
+
+    <!-- Contact Form Style -->
+    <style>
+        #contactForm {
+            text-align: center;
+            background: #fff;
+            color: black;
+            border-radius: 5px;
+            width: 30rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4); 
+        }
+
+        @media screen and (max-width: 480px) {
+            #contactForm {
+                width: 75%;
+            }
+        }
+
+        #formTitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        #contactForm label {
+            display: block;
+            margin: 1rem;
+            text-align: left;
+        }
+        #contactForm input {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25rem;
+        }
+        #contactForm input:hover {
+            border-bottom: 0.3125rem solid #0e3721;
+            height: 2rem;
+            transition: ease 0.5s;
+        }
+        #contactForm textarea {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25rem;
+            height: 10rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            #contactForm input {
+                width: 85%;
+            }
+            #contactForm textarea {
+                width: 85%;
+            }
+        }
+
+        #contactForm button {
+            min-width: 12rem;
+            height: 3rem;
+            border-radius: 24px;
+            background: #57b846;
+            font-weight: bold;
+            line-height: 1.5;
+            color: #fff;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-transition: all .4s;
+            -o-transition: all .4s;
+            -moz-transition: all .4s;
+            transition: all .4s;
+            cursor: pointer;
+        }
+
+        #contactForm button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #contactForm button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+
+    <style>
+        /* Hide the checkbox */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Style the menu icon */
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Style the menu */
+        .menu {
+            display: none;
+            list-style: none;
+        }
+
+        /* Show the menu when the checkbox is checked */
+        input[type="checkbox"]:checked ~ .menu {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Jeffrey Luu</h1>
+        <nav id = "topNavigation">
+            <ul id = navBarMenu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <!-- <li><a href="pages/labs.html">Labs</a></li> -->
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <section class="themeSwitchWrapper">
+                        <label class="switch" aria-label="Toggle Switch"> 
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                    </section>
+                    <!-- TODO COMMENT JS AFTER-->
+                    <!-- <script async src="scripts/theme.js"></script> -->
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class = "contentSection">
+            <h2 id="home">Home</h2>
+            <div id="homeCols">
+                <div id="homeRows">
+                    <figure id = "intro">
+                        <p id = "introDesc"> Hi, I'm Jeffrey Luu, a Developer and Designer.</p>
+                        <p id = "introDesc2"> A 3rd year student at UCSD interested in mobile and web development.</p>
+                        <section id="resumeButton">
+                            <a id = "resumeLink" 
+                            href = "https://drive.google.com/file/d/1eXwe5AGbLlQ61-fzjME4_vMcAU8m390R/view?usp=sharing" 
+                            target = "_blank" 
+                            rel = "noopener noreferrer">
+                             Download Resume 
+                            </a>   
+                        </section>
+                    </figure>
+                    <figure id="me">
+                        <picture id="headshot">
+                            <source srcset="assets/images/portfolioPic.webp" type="image/webp">
+                            <img src="assets/images/portfolioPic.webp" width="216" height="453" alt="A headshot of me, a 20 year old Vietnamese male!">
+                        </picture>
+                        <figcaption class="imgDesc">A picture of me!</figcaption>
+                    </figure>
+                    <figure id="fractal">
+                        <picture id="fractalImg">
+                            <source srcset="assets/images/fractal.jpg" type="image/jpg">
+                            <img src="assets/images/fractal.jpg" width="300" height="300" alt="A Mandelbrot fractal, with a red background, black centers, and blue along the edges">
+                        </picture>
+                        <figcaption class="imgDesc">Mandelbrot fractal made in computer graphics!</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        
+        <section class = "contentSection">
+            <h2 id="about">About</h2>
+            <p id="aboutDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci doloribus porro quam doloremque maiores? Sunt tenetur, pariatur laboriosam labore ratione iste veritatis quam facilis expedita quod, perferendis qui voluptatibus soluta.</p>
+            <!-- <p>The first line of code I wrote was <code>System.out.println("Hello World")</code>!</p> -->
+            <!-- <section id = "Experience">
+                <h3>Experience</h3>
+            </section> -->
+        </section>
+        
+        <section class = "contentSection">
+            <h2 id="projects">Projects</h2>
+            <p id = "workDesc">
+                <strong>Check out some of my most recent projects!</strong>
+            </p>
+            <div id = "workContainer">
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                ZooSeeker
+                            </span>
+                            <p class = "projDesc">
+                                ZooSeeker is an Android application that allows for users to plan out a day at the San Diego Zoo, complete with an optimized path through their selected exhibits.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project1.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                Learning From Health
+                            </span>
+                            <p class = "projDesc">
+                                Learning from Health is a data science project, utilizing data from the CDC to create predictive models for income based on statistics on health conditions like diabetes, cholesterol, kidney disease, etc.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project2.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                UrBenefit
+                            </span>
+                            <p class = "projDesc">
+                                An accessible platform/social application for crowdsourcing volunteers for humanitarian and art-based community efforts.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project3.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                BlackJack
+                            </span>
+                            <p class = "projDesc">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quisquam, quae.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project4.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                SimpleTweet
+                            </span>
+                            <p class = "projDesc">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quisquam, quae.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project5.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+                <section class = "background">
+                    <div class = "projectContainer">
+                        <section class = "moreInfo">
+                            <span class = "projectTitle">
+                                Project 6
+                            </span>
+                            <p class = "projDesc">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quisquam, quae.
+                            </p>
+                            <!-- <img src="assets/images/projects/code.png" alt="A placeholder image" width="200" height="200"/> -->
+                            <button class = "learnMore" onclick="window.location.href='pages/projects/project6.html';">Learn More</button>
+                        </section>
+                    </div>
+                </section>
+            </div>     
+        </section>
+    </main>
+    
+    <section class="contentSection">
+        <h2 id="contact">Contact</h2>
+        <form id="contactForm" action="mailto:" method="post" enctype="text/plain">
+            <span id = "formTitle">Get in Touch!</span>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your name..">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your email..">
+
+            <label for="email">Subject:</label>
+            <input type="text" id="subject" name="subject" required placeholder="Subject..">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Write something.."></textarea>
+
+            <button type="submit"><span>Send Email!</span></button>
+        </form>
+    </section>
+
+    <footer>
+        <hr>
+        <section>
+            <ul>
+                <li><a href="mailto:jluuruncs@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/jeffrey-luu/">Linkedin</a></li>
+                <li><a href="https://github.com/jdluu">Github</a></li>
+                <li><p>Made with &hearts; by Jeffrey Luu </p></li>
+            </ul>
+        </section>
+    </footer>
+
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 # My Web Portfolio
 
-##
+## Design Philosophy
 
 ## Part 1 - Plan Site and Semantic HTML Execution
 

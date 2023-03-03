@@ -3,205 +3,95 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>CSE 134b HW3 HTML Portfolio</title>
+    <title>CSE 134b HW4 HTML Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="keywords" content="HTML, CSS, JS"/>
     <meta name="author" content="Jeffrey Luu"/>
-    <link href="/assets/images/favicon.ico" rel="icon"/>
+    <link href="assets/images/favicon.ico" rel="icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it for theme switching.</p>
+    </noscript>
     <link href="/styles/main.css" rel="stylesheet"/>
 
+    <style>
+        ul {
+            margin-left: 1rem;
+            list-style-type: none;
+        }
+
+        ol {
+            margin-left: 1rem;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BC2SX8MJL9');
+</script>
 
 <body>
     <header>
         <h1>Jeffrey Luu</h1>
-        <nav id = topNavigation>
-            <ul>
+        <nav id = "topNavigation">
+            <ul id = navBarMenu>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/index.html#about">About</a></li>
-                <li><a href="/index.html#work">Work</a></li>
-                <li><a href="labs.html">Labs</a></li>
+                <li><a href="/index.html#projects">Projects</a></li>
+                <li><a href="/labs/labs.html">Labs</a></li>
                 <li><a href="/index.html#contact">Contact</a></li>
                 <li>
-                    <section class="theme-switch-wrapper">
+                    <section class="themeSwitchWrapper">
                         <label class="switch" aria-label="Toggle Switch"> 
                             <input type="checkbox">
                             <span class="slider round"></span>
                           </label>
                     </section>
-                    <!-- TODO COMMENT JS AFTER-->
-                    <script src="/scripts/theme.js"></script>
+                    <script async src="/scripts/theme.js"></script>
                 </li>
             </ul>
         </nav>
     </header>
-
-    <main>
-        <h2 id="labs">Labs</h2>
-        <pre>     
-                     @..@
-                    (\--/)
-                   (.&gt;__&lt;.)
-                   ^^^  ^^^
-
-    ------------------------------------------------
-    This ASCII pic can be found at
-    https://asciiart.website/index.php?art=animals/frogs
-        </pre>
-
-        <picture>
-            <source srcset="assets/images/ms-icon-310x310.png" media="(orientation: portrait)"/>
-            <img src="assets/images/ms-icon-150x150.png" alt="Iconic Fire Emblem Swords"/>
-        </picture>
-
-        <!--TODO: Find out why picture doesn't auto line break-->
-        <div>
-            <br><br />
-        </div>
-
-        <iframe id="inlineFrameExample"
-            title="Inline Frame Example"
-            width="300"
-            height="200"
-            src="https://youtube.com/embed/Jm8mbfTUTug">
-        </iframe>
-
-        <div>
-            <br><br />
-        </div>
-
-        <figure>
-            <figcaption>Listen to the rain and thunder:</figcaption>
-            <audio
-                controls
-                src="/assets/media/rainthunder.mp3">
-            </audio>
-        </figure>
-
-        <h3>Cool Cat Facts Video Below!</h3>
-        <video controls width="300">
-            <source src="/assets/media/cutecat.mp4">
-        </video>
-
-
-        <aside><p>This green rectangle was made with a script in canvas!</p></aside>
-        <canvas id="canvas">
-            <script>
-                let canvas = document.getElementById("canvas");
-                let ctx = canvas.getContext("2d");
-                ctx.fillStyle = "#00FF00";
-                ctx.fillRect(0, 0, 150, 75);
-            </script>
-        </canvas>
-
-        <aside><p>This yellow circle is an SVG!</p></aside>
-        <svg width="100" height="100">
-            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="4" fill="yellow" />
-        </svg>
-
-        <p><b>How to make egg-fried rice!</b></p>
-        <ol>
-            <li>Beat 2 eggs and mix them into some leftover rice(leave overnight).</li>
-            <li>Using vegetable oil, oil the pan(a wok is better).</li>
-            <li>Pour in your rice, moving around the rice occasionally.</li>
-            <li>(Optional)Add in any meat or vegetables that you have.</li>
-            <li>Enjoy!</li>
-        </ol>
-
-        <label for="color-select">Choose your favorite color</label>
-        <select id="color-select">
-            <optgroup label="Primary">
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Yellow</option>
-            </optgroup>
-            <optgroup label="Secondary">
-                <option>Orange</option>
-                <option>Green</option>
-                <option>Purple</option>
-            </optgroup>
-            <optgroup label="Other">
-                <option>Black</option>
-                <option>White</option>
-                <option>Gray</option>
-                <option>Brown</option>
-            </optgroup>
-        </select>
-
-        <form>
-            <fieldset>
-                <legend>Choose your favorite element!</legend>
-                <input type="radio" id="fire" name="element" value="fire">
-                <label for="fire">Fire</label><br />
-                <input type="radio" id="water" name="element" value="water">
-                <label for="water">Water</label><br />
-                <input type="radio" id="earth" name="element" value="earth">
-                <label for="earth">Earth</label><br />
-                <input type="radio" id="air" name="element" value="air">
-                <label for="air">Air</label><br />
-            </fieldset>
-        </form>
-
-        <label for="myBrowser">Choose your favorite browser:</label>
-        <input list="browsers" id="myBrowser" name="myBrowser" />
-        <datalist id="browsers">
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
-        </datalist>
-
-        <details>
-            <summary>Learn More about Ducks</summary>
-            Duck’s feet can’t feel cold.
-        </details>
-
-        <table>
-            <caption>U.S. Cities with the Highest Taxes</caption>
-            <colgroup>
-                <col span="1" class="city">
-                <col span="1" class="tax">
-            </colgroup>
-            <tr>
-                <th scope="col">City</th>
-                <th scope="col">Total Tax %</th>
-            </tr>
-            <tr>
-                <th scope="row">Detroit, MI</th>
-                <td>16.0%</td>          
-            </tr>
-            <tr>
-                <th scope="row">Bridgeport, CT</th>
-                <td>15.6%</td>
-            </tr>
-            <tr>
-                <th scope="row">Newark, NJ</th> 
-                <td>15.3%</td>    
-            </tr>
-        </table>
-
-        <div id="product-list">
-            <template>
-            <div class="product-item">
-                <slot name="product-name">Product Name</slot>
-                <slot name="product-description">Product Description</slot>
-            </div>
-            </template>
-            <template>
-            <div class="product-item">
-                <slot name="product-name">Product Name 2</slot>
-                <slot name="product-description">Product Description 2</slot>
-            </div>
-            </template>
-        </div>
-    </main>
-
+    <hr>
+    <body>
+        <main>
+            <p> &nbsp; </p>
+            <p> &nbsp; </p>
+            <section id="labs">
+                <h2> HW 1 Lab</h2>
+                <ul>
+                    <li><a href="/labs/hw1/labs.html">HTML Exploration</a></li>
+                </ul>
+                
+                <h2> Hw 4 Lab</h2>
+                <ol>
+                    <li><a href="/labs/hw4/nativedialogs.html">Native Dialogs</a></li>
+                    <li><a href="/labs/hw4/customdialogs.html">Custom Dialogs</a></li>
+                    <li><a href="/labs/hw4/crud.html">CRUD Application</a></li>
+                    <li><a href="/labs/hw4/styledcrud.html">Styled CRUD Application</a></li>
+                </ol>
+            </section>
+            
+        </main>
+    </body>
+    
 
     <footer>
+        <hr>
         <section>
             <ul>
                 <li><a href="mailto:jluuruncs@gmail.com">Email</a></li>
@@ -211,6 +101,7 @@
             </ul>
         </section>
     </footer>
+
 </body>
 
 </html>

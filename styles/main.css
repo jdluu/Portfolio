@@ -101,13 +101,7 @@ h2 {
   display: flex;
   justify-content: flex-end;
   text-align: right;
-}
-
-/* TODO Replace with a hamburger menu for mobile for HW4 */
-@media screen and (max-width: 768px) {
-  #topNavigation {
-    display: none;
-  }
+  margin-bottom: 1.5rem;
 }
 
 #navBarMenu {
@@ -115,6 +109,28 @@ h2 {
   list-style: none;
   justify-content: end;
   align-items: center;
+}
+
+#hamburgerMenu {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  #navBarMenu {
+    display: none;
+  }
+  #hamburgerMenu {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0;
+  }
+  #hamburgerMenu:focus {
+    outline: none;
+  }
 }
 
 #topNavigation ul li {
@@ -137,6 +153,8 @@ h2 {
   padding: 10px 15px;
   border-radius: 75px;
 }
+
+
 
 /*Simple css to style it like a toggle switch*/
 /* The switch - the box around the slider */

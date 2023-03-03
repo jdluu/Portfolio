@@ -3,17 +3,14 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>My Portfolio</title>
+    <title>CSE 134b HW4 HTML Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="keywords" content="HTML, CSS, JS"/>
     <meta name="author" content="Jeffrey Luu"/>
-    <link href="assets/images/favicon.ico" rel="icon"/>
+    <link href="/assets/images/favicon.ico" rel="icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--TODO Used for icons with javascript-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" rel="stylesheet" > 
-    <link href="styles/main.css" rel="stylesheet"/>
-
+    <link href="/styles/main.css" rel="stylesheet"/>
     <!-- Home Section Style-->
     <style>
         #home {
@@ -202,7 +199,6 @@
         }
     </style>
     
-
     <!-- About Section Style-->
     <style>
         #aboutDesc {
@@ -434,17 +430,64 @@
 
     </style>
 
+    <style>
+        /* Hide the checkbox */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Style the menu icon */
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Style the menu */
+        .menu {
+            display: none;
+            list-style: none;
+        }
+
+        /* Show the menu when the checkbox is checked */
+        input[type="checkbox"]:checked ~ .menu {
+            display: block;
+        }
+    </style>
+
+    <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it for theme switching.</p>
+    </noscript>
+
+    <script async>
+        const hamburgerMenu = document.getElementById("hamburgerMenu");
+        const navBarMenu = document.getElementById("navBarMenu");
+      
+        hamburgerMenu.addEventListener("click", () => {
+          navBarMenu.classList.toggle("show");
+        });
+    </script>
+
+
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BC2SX8MJL9');
+</script>
 
 <body>
     <header>
         <h1>Jeffrey Luu</h1>
         <nav id = "topNavigation">
             <ul id = navBarMenu>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <!-- <li><a href="pages/labs.html">Labs</a></li> -->
+                <li><a href="/labs/labs.html">Labs</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
                     <section class="themeSwitchWrapper">
@@ -453,12 +496,13 @@
                             <span class="slider round"></span>
                           </label>
                     </section>
-                    <script async src="scripts/theme.js"></script>
+                    <script defer src="scripts/theme.js"></script>
                 </li>
             </ul>
+            <button id="hamburgerMenu">&#9776;</button>
         </nav>
     </header>
-
+    <hr>
     <main>
         <section class = "contentSection">
             <h2 id="home">Home</h2>
@@ -496,11 +540,19 @@
         
         <section class = "contentSection">
             <h2 id="about">About</h2>
-            <p id="aboutDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci doloribus porro quam doloremque maiores? Sunt tenetur, pariatur laboriosam labore ratione iste veritatis quam facilis expedita quod, perferendis qui voluptatibus soluta.</p>
-            <!-- <p>The first line of code I wrote was <code>System.out.println("Hello World")</code>!</p> -->
-            <!-- <section id = "Experience">
-                <h3>Experience</h3>
-            </section> -->
+            <p id="aboutDesc">
+                <strong>Hi, I'm Jeffrey Luu!</strong>
+                I'm currently a 3rd year student studying Human Computer Interaction with a minor in Computer Science at UCSD, set to graduate in June 2023.
+                <br>
+                <br>
+                Ever since I was young, I immersed myself into the world of technology, constantly tinkering
+                with my computer and learning new things. I also found joy in volunteering spending 5 years at the same food bank 
+                helping every weekend.
+                <br>
+                <br>
+                Now, I'm working towards bridging the intersection between technology and human interaction, making
+                more functional and accesssible web and mobile interfaces for everyone.
+            </p>
         </section>
         
         <section class = "contentSection">

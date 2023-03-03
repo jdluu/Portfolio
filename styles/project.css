@@ -1,0 +1,14 @@
+
+.page {
+    margin-left: 1rem;
+} 
+
+/* Create a 2x4 grid layout */
+.contentContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+
+

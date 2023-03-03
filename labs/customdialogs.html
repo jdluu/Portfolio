@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Custom Dialogs Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Jeffrey Luu"/>
+    <link href="assets/images/favicon.ico" rel="icon"/>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
+    <script src="customdialog.js"></script>
+    <script type="module">
+        import { init } from './customdialog.js';
+        init();
+    </script>
+</head>
+
+<body>
+    <!-- A modal dialog containing a form -->
+  <dialog id="myDialog"></dialog>
+  <p>
+    <button id="alertBtn" type="button">Alert</button>
+    <button id="confirmBtn" type="button">Confirm</button>
+    <button id="promptBtn" type="button">Prompt</button>
+  </p>
+  <output></output>
+  <script>
+    // Dom purify the output
+    const output = document.querySelector('output');
+    output.textContent = `${DOMPurify.sanitize(output.textContent)}`;
+  </script>
+
+</body>
+</html>
+

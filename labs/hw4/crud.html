@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSE 134b HW4 CRUD Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="HTML, CSS, JS"/>
+    <meta name="author" content="Jeffrey Luu"/>
+    <link href="/assets/images/favicon.ico" rel="icon"/>
+    <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it to use this website.</p>
+    </noscript>
+    <script type="text/javascript" src="blog.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BC2SX8MJL9');
+</script>
+
+<body>
+    <header>
+        <h1>Blog of Classes</h1>
+    </header>
+    <main>
+        <dialog>
+            <form id="postForm">
+                <label for="title">Course:</label>
+                <input type="text" id="title" name="title" placeholder="Enter a Class">
+    
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" placeholder="Enter a Date">
+    
+                <label for="quarter">Quarter Taken:</label>
+                <select id="quarter" name="quarter">
+                    <option value="Fall 2020">Fall 2020</option>
+                    <option value="Winter 2021">Winter 2021</option>
+                    <option value="Spring 2021">Spring 2021</option>
+                    <option value="Fall 2021">Fall 2021</option>
+                    <option value="Winter 2022">Winter 2022</option>
+                    <option value="Spring 2022">Spring 2022</option>
+                    <option value="Fall 2022">Fall 2022</option>
+                    <option value="Winter 2023">Winter 2023</option>
+                    <option value="Spring 2023">Spring 2023</option>
+                </select>
+                
+                <label for="summary">Description:</label>
+                <input type="text" id="summary" name="summary" placeholder="Summary">
+                <input type="submit" value="Save" onclick="createPost()">
+                <input type="reset" value="Clear">
+                <input type="submit" value="Exit" onclick="document.querySelector('dialog').close(); generateTable();">
+            </form>
+        </dialog>
+        <table id="postTable">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Date</th>
+                    <th>Quarter</th>
+					<th>Summary</th>
+                    <th hidden>Actions</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+        <p> &nbsp;</p>
+
+        <button onclick="document.querySelector('dialog').showModal();">Add Class</button>
+        <script>
+            window.onload = function() {
+                generateTable();
+            };
+        </script>
+        
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSE 134b HW4 Styled CRUD Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="HTML, CSS, JS"/>
+    <meta name="author" content="Jeffrey Luu"/>
+    <link href="/assets/images/favicon.ico" rel="icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link href="/styles/main.css" rel="stylesheet"/>
+    <style>
+        h2 {
+            margin-bottom: 1rem;
+        }
+        dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 500px;
+        }
+        @media screen and (max-width: 500px) {
+            dialog {
+                width: 90%;
+            }
+        }
+        #postForm label {
+            display: inline-block;
+            text-align: left;
+        }
+
+        #postForm label:nth-child(7),
+        #postForm label:nth-child(8) {
+            display: block;
+        }
+
+        #postForm input[type="text"], #postForm select {
+            display: inline-block;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        #postForm input[type="submit"], #postForm input[type="reset"] {
+            display: inline-block;
+            margin-right: 10px;
+
+        }
+
+        #postTable {
+            margin-left: 1rem;
+            border: 4px solid var(--font-color);
+            margin-bottom: 1rem;
+        }
+
+        #postTable th {
+            padding: 0.5rem;
+            text-align: left;
+            background-color: var(--button1-color);
+        }
+
+        #addButton {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-left: 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            background-color: #007bff;
+            color: var(--inverse-font-color);
+            cursor: pointer;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it to use this website.</p>
+    </noscript>
+    <script type="text/javascript" src="styledblog.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BC2SX8MJL9');
+</script>
+
+<body>
+    <header>
+        <h1>Jeffrey Luu</h1>
+        <nav id = "topNavigation">
+            <ul id = navBarMenu>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/index.html#about">About</a></li>
+                <li><a href="/index.html#projects">Projects</a></li>
+                <li><a href="/labs/labs.html">Labs</a></li>
+                <li><a href="/index.html#contact">Contact</a></li>
+                <li>
+                    <section class="themeSwitchWrapper">
+                        <label class="switch" aria-label="Toggle Switch"> 
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                    </section>
+                    <script async src="/scripts/theme.js"></script>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <dialog>
+            <form id="postForm">
+                <label for="title">Course:</label>
+                <input type="text" id="title" name="title" placeholder="Enter a Class">
+    
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" placeholder="Enter a Date">
+    
+                <label for="quarter">Quarter Taken:</label>
+                <select id="quarter" name="quarter">
+                    <option value="Fall 2020">Fall 2020</option>
+                    <option value="Winter 2021">Winter 2021</option>
+                    <option value="Spring 2021">Spring 2021</option>
+                    <option value="Fall 2021">Fall 2021</option>
+                    <option value="Winter 2022">Winter 2022</option>
+                    <option value="Spring 2022">Spring 2022</option>
+                    <option value="Fall 2022">Fall 2022</option>
+                    <option value="Winter 2023">Winter 2023</option>
+                    <option value="Spring 2023">Spring 2023</option>
+                </select>
+                
+                <label for="summary">Description:</label>
+                <input type="text" id="summary" name="summary" placeholder="Summary">
+                <input type="submit" value="Save" onclick="createPost()">
+                <input type="reset" value="Clear">
+                <input type="submit" value="Exit" onclick="document.querySelector('dialog').close(); generateTable();">
+            </form>
+        </dialog>
+        <h2> Blog of Classes</h2>
+        <table id="postTable">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Date</th>
+                    <th>Quarter</th>
+					<th>Summary</th>
+                    <th hidden>Actions</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+        <p> &nbsp;</p>
+
+        <button id="addButton" onclick="document.querySelector('dialog').showModal();">Add Class</button>
+        <script>
+            window.onload = function() {
+                generateTable();
+            };
+        </script>
+        
+    </main>
+
+    <footer>
+        <hr>
+        <section>
+            <ul>
+                <li><a href="mailto:jluuruncs@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/jeffrey-luu/">Linkedin</a></li>
+                <li><a href="https://github.com/jdluu">Github</a></li>
+                <li><p>Made with &hearts; by Jeffrey Luu </p></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

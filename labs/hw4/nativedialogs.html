@@ -9,9 +9,9 @@
     <link href="/assets/images/favicon.ico" rel="icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <noscript>
-        <p>JavaScript is disabled in your browser. Please enable it to use this website.</p>
-    </noscript>
+    <!--TODO Used for icons with javascript-->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" rel="stylesheet" > -->
+    <link href="styles/main.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -26,7 +26,7 @@
                     }
                     else if (button.id == "confirmButton") {
                         result = confirm("Do you confirm this?");
-                        output.textContent = `Confirm result: ${result}`;
+                        output.textContent = `The value returned by the confirm method is: ${result}`;
                     }
                     else if (button.id == "promptButton") {
                         const input = prompt("What's your name?");
@@ -35,19 +35,19 @@
                             output.textContent = "User didn't enter a name!";
                         }
                         else if (input != null) {
-                            output.textContent = `Hi, ${input}!`;
+                            output.textContent = `The value returned by the prompt method is: ${input}`;
                         }
                         else {
                             output.textContent = "The prompt was cancelled!";
                         }
                     }
-                    else if (button.id == "safeButton") {
-                        const input = prompt("What's your name?");
+                    else if (button.id == "What's your name?") {
+                        const input = prompt("Enter some text which will be purified!");
                         if (input == "") {
                             output.textContent = "User didn't enter a name!";
                         }
                         else if (input != null) {
-                            output.textContent = `Hi, ${DOMPurify.sanitize(input)}!`;
+                            output.textContent = `The value returned by the prompt method is: ${DOMPurify.sanitize(input)}`;
                         }
                         else {
                             output.textContent = "The prompt was cancelled!";

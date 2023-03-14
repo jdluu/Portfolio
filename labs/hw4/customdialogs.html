@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="Jeffrey Luu"/>
     <link href="/assets/images/favicon.ico" rel="icon"/>
-    <noscript>
-      <p>JavaScript is disabled in your browser. Please enable it to use this website.</p>
-    </noscript>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
     <script src="customdialog.js"></script>
     <script type="module">
@@ -17,15 +14,6 @@
         init();
     </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BC2SX8MJL9');
-</script>
 
 <body>
     <!-- A modal dialog containing a form -->
@@ -36,6 +24,11 @@
     <button id="promptBtn" type="button">Prompt</button>
   </p>
   <output></output>
+  <script>
+    // Dom purify the output
+    const output = document.querySelector('output');
+    output.textContent = `${DOMPurify.sanitize(output.textContent)}`;
+  </script>
 
 </body>
 </html>

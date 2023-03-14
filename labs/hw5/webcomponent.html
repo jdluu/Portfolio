@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple Web Component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="HTML, CSS, JS"/>
+    <meta name="author" content="Jeffrey Luu"/>
+    <link href="/assets/images/favicon.ico" rel="icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it for theme switching.</p>
+    </noscript>
+    <link href="/styles/main.css" rel="stylesheet"/>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BC2SX8MJL9');
+</script>
+
+<body>
+  <header>
+    <h1>Jeffrey Luu</h1>
+    <nav id = "topNavigation">
+        <ul id = navBarMenu>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/index.html#about">About</a></li>
+            <li><a href="/index.html#projects">Projects</a></li>
+            <li><a href="/labs/labs.html">Labs</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+            <li>
+                <section class="themeSwitchWrapper">
+                    <label class="switch" aria-label="Toggle Switch"> 
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </section>
+                <script async src="/scripts/theme.js"></script>
+            </li>
+        </ul>
+    </nav>
+</header>
+<hr>
+<button-count></button-count>
+<script src="ButtonCount.js"></script>
+
+</body>
+
+</html>

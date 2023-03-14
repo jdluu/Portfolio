@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTTP with JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS, JS" />
+    <meta name="author" content="Jeffrey Luu" />
+    <link href="/assets/images/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="/styles/main.css" rel="stylesheet" />
+
+    <style>
+      /* Style the Form */
+      #formDiv {
+        margin: 20px;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+      }
+
+      label {
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 1.2rem;
+      }
+
+      input[type="number"],
+      input[type="text"],
+      textarea {
+        width: 50%;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 1.2em;
+      }
+
+      /* Style the Buttons */
+      #articleForm button {
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: var(--inverse-font-color);
+        padding: 10px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.2em;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Style the Radio */
+      input[type="radio"] {
+        margin: 10px;
+      }
+
+      .radioRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        padding-right: 10px;
+        gap: 10px;
+        margin-left: 10px;
+      }
+
+      legend {
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 1.2rem;
+      }
+
+      #response {
+        margin: 20px auto;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+    </style>
+    <noscript>
+      <p>
+        JavaScript is disabled in your browser. Please enable it for HTTP with
+        JavaScript.
+      </p>
+    </noscript>
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-BC2SX8MJL9");
+  </script>
+
+  <body>
+    <header>
+      <h1>Jeffrey Luu</h1>
+      <nav id="topNavigation">
+        <ul id="navBarMenu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html#about">About</a></li>
+          <li><a href="/index.html#projects">Projects</a></li>
+          <li><a href="/labs/labs.html">Labs</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+          <li>
+            <section class="themeSwitchWrapper">
+              <label class="switch" aria-label="Toggle Switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </section>
+            <script async src="/scripts/theme.js"></script>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <hr />
+
+    <form id="articleForm">
+      <div id="formDiv">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required />
+
+        <label for="article_name">Article Name:</label>
+        <input type="text" id="article_name" name="article_name" required />
+
+        <label for="article_body">Article Body:</label>
+        <textarea id="article_body" name="article_body" required></textarea>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" disabled />
+      </div>
+
+      <div id="btnRow">
+        <button type="button" id="postBtn">POST</button>
+        <button type="button" id="getBtn">GET</button>
+        <button type="button" id="putBtn">PUT</button>
+        <button type="button" id="deleteBtn">DELETE</button>
+      </div>
+
+      <br />
+      <div class="radioRow">
+        <fieldset>
+          <legend>Request Type</legend>
+          <label for="xmlHTTP" class="radioArea">
+            <input
+              type="radio"
+              name="requestType"
+              id="xmlHTTP"
+              value="xmlHTTP"
+              checked
+            />
+            XMLHttpRequest
+          </label>
+  
+          <label for="fetchAPI" class="radioArea">
+            <input
+              type="radio"
+              name="requestType"
+              id="fetchAPI"
+              value="fetchAPI"
+            />
+            Fetch API
+          </label>
+        </fieldset>
+      </div>
+    </form>
+
+    <output id="response"></output>
+
+    <script src="methodtest.js"></script>
+  </body>
+</html>

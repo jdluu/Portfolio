@@ -1,6 +1,9 @@
 # My Web Portfolio
 
 ## Design Philosophy
+My design philosophy is to create websites with a focus on usability, accessbility, and simplicity.
+
+For my portfolio, I followed the principles of progressive enhancement, applying user centered thinking to formulate my portfolio.
 
 ## Part 1 - Plan Site and Semantic HTML Execution
 

@@ -1,148 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>CSE 134b HTML Portfolio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="keywords" content="HTML" />
+		<meta name="author" content="Jeffrey Luu" />
+		<link href="/assets/images/favicon.ico" rel="icon" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="/styles/main.css" rel="stylesheet" />
+		<link href="/styles/project.css" rel="stylesheet" />
+		<style>
+			#placeHolder img {
+				width: 30%;
+				height: 30%;
+			}
 
-<head>
-    <meta charset="UTF-8" />
-    <title>CSE 134b HTML Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="keywords" content="HTML"/>
-    <meta name="author" content="Jeffrey Luu"/>
-    <link href="/assets/images/favicon.ico" rel="icon"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="/styles/main.css" rel="stylesheet"/>
-    <link href="/styles/project.css" rel="stylesheet"/>
-    <noscript>
-        <p>JavaScript is disabled in your browser. Please enable it for theme switching.</p>
-    </noscript>
-    <style>
-        #placeHolder img {
-            width: 30%;
-            height: 30%;
-        }
+			#zooWF img {
+				width: 90%;
+				height: 100%;
+			}
+		</style>
+		<noscript>
+			<p>
+				JavaScript is disabled in your browser. Please enable it for theme
+				switching.
+			</p>
+		</noscript>
 
-        #zooWF img {
-            width: 90%;
-            height: 100%;
-        }
-    </style>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BC2SX8MJL9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+			gtag("config", "G-BC2SX8MJL9");
+		</script>
+	</head>
 
-  gtag('config', 'G-BC2SX8MJL9');
-</script>
+	<body>
+		<header>
+			<h1>Jeffrey Luu</h1>
+			<nav id="topNavigation">
+				<ul id="navBarMenu">
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/index.html#about">About</a></li>
+					<li><a href="/index.html#projects">Projects</a></li>
+					<li><a href="/labs/labs.html">Labs</a></li>
+					<li><a href="/index.html#contact">Contact</a></li>
+					<li>
+						<section class="themeSwitchWrapper">
+							<label class="switch" aria-label="Toggle Switch">
+								<input type="checkbox" />
+								<span class="slider round"></span>
+							</label>
+						</section>
+						<script async src="/scripts/theme.js"></script>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<hr />
 
-<body>
-    <header>
-        <h1>Jeffrey Luu</h1>
-        <nav id = "topNavigation">
-            <ul id = navBarMenu>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/index.html#about">About</a></li>
-                <li><a href="/index.html#projects">Projects</a></li>
-                <li><a href="/labs/labs.html">Labs</a></li>
-                <li><a href="/index.html#contact">Contact</a></li>
-                <li>
-                    <section class="themeSwitchWrapper">
-                        <label class="switch" aria-label="Toggle Switch"> 
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                    </section>
-                    <script async src="/scripts/theme.js"></script>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <hr>
+		<h2>ZooSeeker</h2>
+		<section class="page">
+			<h3>An Android App for planning a trip to the San Diego Zoo</h3>
+			<picture id="placeHolder">
+				<img src="/assets/images/placeholder.png" alt="ZooSeeker App" />
+			</picture>
+			<div class="contentContainer">
+				<section>
+					<h4><strong>Problem</strong></h4>
+					<p>
+						Despite the San Diego Zoo having their own app for navigating the
+						zoo, users reported it as cumbersome, and difficult to use. The app
+						is difficult to navigate and the directions it gives are difficult
+						to follow, leading some users to give up on using the app and
+						instead choosing to use a paper map.
+					</p>
+				</section>
 
-    <h2>ZooSeeker</h2>
-    <section class="page">
-        <h3>An Android App for planning a trip to the San Diego Zoo</h3>
-        <picture id="placeHolder">
-            <img src="/assets/images/placeholder.png" alt="ZooSeeker App">
-        </picture>
-        <div class="contentContainer">
-            <section>
-                <h4><strong>Problem</strong></h4>
-                <p>Despite the San Diego Zoo having their own app for navigating the zoo, 
-                users reported it as cumbersome, and difficult to use. 
-                The app is difficult to navigate and the directions it gives are difficult to follow, 
-                leading some users to give up on using the app and instead choosing to use a paper map.</p>
-            </section>
+				<section>
+					<h4><strong>Technologies</strong></h4>
+					<p>Java(Android), Figma</p>
+				</section>
 
-            <section>
-                <h4><strong>Technologies</strong></h4>
-                <p>Java(Android), Figma</p>
-            </section>
+				<section>
+					<h4><strong>Solution</strong></h4>
+					<p>
+						Our app, ZooSeeker, is a mobile app that allows users to plan their
+						trip to the San Diego Zoo. Users can search for animals, exhibits,
+						and restaurants, and add them to their itinerary. The app will then
+						generate a map of the zoo, with the user's itinerary highlighted.
+						The app will also provide directions to the user's next destination,
+						and will notify the user when they are close to their next
+						destination.
+					</p>
+				</section>
 
-            <section>
-                <h4><strong>Solution</strong></h4>
-                <p>Our app, ZooSeeker, is a mobile app that allows users to plan their trip to the San Diego Zoo.
-                    Users can search for animals, exhibits, and restaurants, and add them to their itinerary. 
-                    The app will then generate a map of the zoo, with the user's itinerary highlighted. 
-                    The app will also provide directions to the user's next destination, 
-                    and will notify the user when they are close to their next destination.</p>
-            </section>
+				<section>
+					<h4><strong>Tools</strong></h4>
+					<p>
+						Git, GitHub, Android Studio, JUnit, Espresso, Robolectric, Zenhub,
+						Github Actions CI
+					</p>
+				</section>
 
-            <section>
-                <h4><strong>Tools</strong></h4>
-                <p>Git, GitHub, Android Studio, JUnit, Espresso, Robolectric, Zenhub, Github Actions CI</p>
-            </section>
-                
-            <section>
-                <h4><strong>Software Development Process</strong></h4>
-                <p>We followed the agile software process, creating user stories, BDD scenarios, 
-                    as well as object-oriented design principles such as SRP, dependency inversion, and the open-closed principle. 
-                    In addition, when applicable, we applied design patterns such as singleton, adapter, observer, etc.</p>
-            </section>
-            
-            <section>
-                <h4><strong>Wireframes</strong></h4>
-                <picture id ='zooWF'>
-                    <img src = "/assets/images/projects/zooseekerwf.png" alt="ZooSeeker Wireframe">
-                </picture>
+				<section>
+					<h4><strong>Software Development Process</strong></h4>
+					<p>
+						We followed the agile software process, creating user stories, BDD
+						scenarios, as well as object-oriented design principles such as SRP,
+						dependency inversion, and the open-closed principle. In addition,
+						when applicable, we applied design patterns such as singleton,
+						adapter, observer, etc.
+					</p>
+				</section>
 
-            </section>
-            
-            <section>
-                <h4><strong></strong>Reflection</h4>
-                <p>This project was my introduction into the world of agile software development. 
-                    I learned a lot amount planning out iterations, working in groups, as well as when to pivot in order to have deliverables ready for each sprint.
-                    <br>
-                    <br>
-                    My role varied according to the needs of our team, but I spent the most time as a project manager and lead tester for our project. 
-                    These roles gave me some experience in communication as well as continuous integration and android testing frameworks like Espresso.
-                    <br>
-                    <br>
-                    If I had more time, I would have spent more time on the user experience and design of this project. 
-                    We didn't work on the user experience or user interface of this project in order to meet our mvp as well as implement all of our user stories. 
-                    <br>
-                    <br>
-                    However, it may be a better idea to cut out less essential features and improve upon the user experience of the core features.
-                    Users would care more about the app functional, with a good user experience, than a fully functional app with a bad user experience.
-                </p>
-            </section>
-        </div>
-    </section>
+				<section>
+					<h4><strong>Wireframes</strong></h4>
+					<picture id="zooWF">
+						<img
+							src="/assets/images/projects/zooseekerwf.png"
+							alt="ZooSeeker Wireframe"
+						/>
+					</picture>
+				</section>
 
-    <footer>
-        <hr>
-        <section>
-            <ul>
-                <li><a href="mailto:jluuruncs@gmail.com">Email</a></li>
-                <li><a href="https://www.linkedin.com/in/jeffrey-luu/">Linkedin</a></li>
-                <li><a href="https://github.com/jdluu">Github</a></li>
-                <li><p>Made with &hearts; by Jeffrey Luu </p></li>
-            </ul>
-        </section>
-    </footer>
-</body>
+				<section>
+					<h4><strong></strong>Reflection</h4>
+					<p>
+						This project was my introduction into the world of agile software
+						development. I learned a lot amount planning out iterations, working
+						in groups, as well as when to pivot in order to have deliverables
+						ready for each sprint.
+						<br />
+						<br />
+						My role varied according to the needs of our team, but I spent the
+						most time as a project manager and lead tester for our project.
+						These roles gave me some experience in communication as well as
+						continuous integration and android testing frameworks like Espresso.
+						<br />
+						<br />
+						If I had more time, I would have spent more time on the user
+						experience and design of this project. We didn't work on the user
+						experience or user interface of this project in order to meet our
+						mvp as well as implement all of our user stories.
+						<br />
+						<br />
+						However, it may be a better idea to cut out less essential features
+						and improve upon the user experience of the core features. Users
+						would care more about the app functional, with a good user
+						experience, than a fully functional app with a bad user experience.
+					</p>
+				</section>
+			</div>
+		</section>
 
+		<footer>
+			<hr />
+			<section>
+				<ul>
+					<li><a href="mailto:jluuruncs@gmail.com">Email</a></li>
+					<li>
+						<a href="https://www.linkedin.com/in/jeffrey-luu/">Linkedin</a>
+					</li>
+					<li><a href="https://github.com/jdluu">Github</a></li>
+					<li><p>Made with &hearts; by Jeffrey Luu</p></li>
+				</ul>
+			</section>
+		</footer>
+	</body>
 </html>

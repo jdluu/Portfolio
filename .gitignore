@@ -1,3 +1,6 @@
 
 # Ignore .idea configuration files from WebStorm
 .idea/
+
+# Ignore the folder named "legacy" and all its contents
+legacy/
